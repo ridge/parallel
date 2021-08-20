@@ -48,9 +48,8 @@ func NewGroup(ctx context.Context) *Group {
 // NewSubgroup creates a new Group nested within another. The spawn argument is
 // the spawn function of the parent group.
 //
-// The subgroup's context is inherited from the parent group, with the optional
-// structured logging fields injected. The entire subgroup is treated as a task
-// in the parent group.
+// The subgroup's context is inherited from the parent group. The entire
+// subgroup is treated as a task in the parent group.
 //
 // Example within parallel.Run:
 //
