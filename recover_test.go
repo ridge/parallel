@@ -22,10 +22,10 @@ func TestPanicString(t *testing.T) {
 	}).(ErrPanic)
 	require.Nil(t, err.Unwrap())
 	require.EqualError(t, err, "panic: oops")
-	require.Equal(t, "oops", err.Value())
+	require.Equal(t, "oops", err.Value)
 	// panicWith must be mentioned: the stack is that of the panic location,
 	// not where the panic is collected
-	require.Regexp(t, "(?s)^goroutine.*panicWith", string(err.Stack()))
+	require.Regexp(t, "(?s)^goroutine.*panicWith", string(err.Stack))
 }
 
 func TestPanicError(t *testing.T) {
@@ -38,8 +38,8 @@ func TestPanicError(t *testing.T) {
 	}).(ErrPanic)
 	require.Equal(t, errors.New("oops"), err.Unwrap())
 	require.EqualError(t, err, "panic: oops")
-	require.Equal(t, errors.New("oops"), err.Value())
+	require.Equal(t, errors.New("oops"), err.Value)
 	// panicWith must be mentioned: the stack is that of the panic location,
 	// not where the panic is collected
-	require.Regexp(t, "(?s)^goroutine.*panicWith", string(err.Stack()))
+	require.Regexp(t, "(?s)^goroutine.*panicWith", string(err.Stack))
 }
