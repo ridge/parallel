@@ -25,9 +25,9 @@ func (err ErrPanic) Unwrap() error {
 	return nil
 }
 
-// RunTask executes the task in the current goroutine, recovering from panics.
-// A panic is logged, reported to monitoring and returned as ErrPanic.
-func RunTask(ctx context.Context, task Task) (err error) {
+// runTask executes the task in the current goroutine, recovering from panics.
+// A panic is returned as ErrPanic.
+func runTask(ctx context.Context, task Task) (err error) {
 	defer func() {
 		if p := recover(); p != nil {
 			panicErr := ErrPanic{Value: p, Stack: debug.Stack()}

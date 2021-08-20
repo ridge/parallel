@@ -107,7 +107,7 @@ func (g *Group) Spawn(name string, onExit OnExit, task Task) {
 // Second parameter is the task ID. It is ignored because the only reason to
 // pass it is to add it to the stack trace
 func (g *Group) runTask(ctx context.Context, _ int64, name string, onExit OnExit, task Task) {
-	err := RunTask(ctx, task)
+	err := runTask(ctx, task)
 
 	g.mu.Lock()
 	defer g.mu.Unlock()
