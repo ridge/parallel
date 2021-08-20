@@ -42,5 +42,5 @@ Licensed under [Apache 2.0](LICENSE) license.
 
 Authors:
 - [Alexey Feldgendler](https://github.com/feldgendler)
-- [Mikhail Gusarov](https://github.com/dottedmag)
+- [Misha Gusarov](https://github.com/dottedmag)
 - [Wojciech Małota-Wójcik](https://www.linkedin.com/in/wmalota/)
