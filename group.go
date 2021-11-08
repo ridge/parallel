@@ -8,6 +8,9 @@ import (
 	"sync/atomic"
 )
 
+// CtxFactory may be used to add something to context created for task
+var CtxFactory func(ctx context.Context, taskName string) context.Context
+
 var nextTaskID int64 = 0x0bace1d000000000
 
 // Group is a facility for running a task with several subtasks without
@@ -107,6 +110,9 @@ func (g *Group) Spawn(name string, onExit OnExit, task Task) {
 // Second parameter is the task ID. It is ignored because the only reason to
 // pass it is to add it to the stack trace
 func (g *Group) runTask(ctx context.Context, _ int64, name string, onExit OnExit, task Task) {
+	if CtxFactory != nil {
+		ctx = CtxFactory(ctx, name)
+	}
 	err := runTask(ctx, task)
 
 	g.mu.Lock()
