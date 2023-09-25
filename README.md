@@ -1,6 +1,8 @@
 # Go library for structured concurrency
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/ridge/parallel)
 
+This repository is archived. See https://github.com/dottedmag/parallel for the current version.
+
 [Structured concurrency](https://en.wikipedia.org/wiki/Structured_concurrency)
 helps reasoning about the behaviour of parallel programs. `parallel` implements
 structured concurrency for Go.
